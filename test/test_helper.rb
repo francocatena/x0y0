@@ -44,21 +44,20 @@ class ActionDispatch::IntegrationTest
   def login
     user = Fabricate(:user, password: '123456')
     
-    visit new_user_session_path
-    
     assert_page_has_no_errors!
+    visit new_user_session_path
     
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: '123456'
     
-    find('.btn.btn-primary').click
+    first(:css, '.btn.btn-primary').click
     
     assert_equal users_path, current_path
     
     assert_page_has_no_errors!
-    assert page.has_css?('.alert')
+    assert page.has_css?('footer.alert')
     
-    within '.alert' do
+    within 'footer.alert' do
       assert page.has_content?(I18n.t('devise.sessions.signed_in'))
     end
   end
