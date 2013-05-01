@@ -9,6 +9,8 @@ with the name of your application...
 
 === Dependency Status {<img src="https://gemnasium.com/francocatena/x0y0.png?travis"/>}[https://gemnasium.com/francocatena/x0y0]
 
+=== Code Status {<img src="https://codeclimate.com/github/francocatena/x0y0.png"/>}[https://codeclimate.com/github/francocatena/x0y0]
+
 == (The MIT License)
 
 Copyright (c) 2012 Franco Catena
