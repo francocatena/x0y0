@@ -53,7 +53,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/1
+  # PATCH /users/1
   def update
     authorize! :assign_roles, @user if user_params[:role]
     @title = t 'view.users.edit_title'
@@ -76,7 +76,7 @@ class UsersController < ApplicationController
     @title = t('view.users.edit_profile')
   end
   
-  # PUT /users/1/update_profile
+  # PATCH /users/1/update_profile
   def update_profile
     @title = t('view.users.edit_profile')
     
