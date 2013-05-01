@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  include Application::Exceptions
+  include Application::CancanStrongParameters
 
   protect_from_forgery
   after_filter -> { expires_now if user_signed_in? }

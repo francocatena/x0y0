@@ -184,7 +184,7 @@
       inclusion: "no está incluido en la lista"
       exclusion: "está reservado"
       invalid: "no es válido"
-      confirmation: "no coincide con la confirmación"
+      confirmation: "no coincide"
       accepted: "debe ser aceptado"
       empty: "no puede estar vacío"
       blank: "no puede estar en blanco"

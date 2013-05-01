@@ -44,7 +44,9 @@ class UsersControllerTest < ActionController::TestCase
     sign_in @user
     
     assert_difference('User.count') do
-      post :create, user: Fabricate.attributes_for(:user)
+      post :create, user: Fabricate.attributes_for(:user).slice(
+        :name, :lastname, :email, :password, :password_confirmation, :role, :remember_me, :lock_version
+      )
     end
 
     assert_redirected_to user_url(assigns(:user))

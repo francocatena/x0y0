@@ -10,21 +10,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable,
     :validatable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :lastname, :email, :password, :password_confirmation,
-    :role, :remember_me, :lock_version
-  
-  # Defaul order
-  default_scope order('lastname ASC')
+  # Callbacks
+  after_initialize :set_default_role
+
+  # Default order
+  default_scope { order('lastname ASC') }
   
   # Validations
   validates :name, presence: true
   validates :name, :lastname, :email, length: { maximum: 255 }, allow_nil: true,
     allow_blank: true
   
-  def initialize(attributes = nil, options = {})
-    super(attributes, options)
-    
+  def set_default_role
     self.role ||= :regular
   end
   
@@ -41,6 +38,6 @@ class User < ActiveRecord::Base
   end
   
   def self.filtered_list(query)
-    query.present? ? magick_search(query) : scoped
+    query.present? ? magick_search(query) : all
   end
 end
