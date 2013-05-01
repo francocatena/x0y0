@@ -145,11 +145,11 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
-    sidekiq (2.11.1)
-      celluloid (~> 0.13.0)
-      connection_pool (~> 1.0)
-      multi_json (~> 1)
-      redis (~> 3)
+    sidekiq (2.11.2)
+      celluloid (>= 0.13.0)
+      connection_pool (>= 1.0.0)
+      multi_json
+      redis (>= 3.0)
       redis-namespace
     simple_form (3.0.0.beta1)
       actionpack (>= 4.0.0.beta, < 4.1)
