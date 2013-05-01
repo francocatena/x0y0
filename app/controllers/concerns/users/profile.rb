@@ -2,7 +2,7 @@ module Users::Profile
   extend ActiveSupport::Concern
 
   included do
-    before_filter :load_current_user, only: [:edit_profile, :update_profile]
+    before_action :load_current_user, only: [:edit_profile, :update_profile]
   end
 
   # GET /users/1/edit_profile
