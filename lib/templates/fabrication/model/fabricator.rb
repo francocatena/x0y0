@@ -6,9 +6,10 @@ Fabricator(<%= class_name.match(/::/) ? "'#{class_name}'" : ":#{singular_name}" 
         attribute.name.match(/email/).present? ? 'Faker::Internet.email' : 'Faker::Lorem.sentence'
       ) -%>
     <%- when 'text' then 'Faker::Lorem.paragraph' -%>
-    <%- when *['date', 'datetime'] then 'rand(1.year).ago' -%>
-    <%- when *['decimal', 'float'] then '100.0 * rand' -%>
-    <%- when 'integer' then '100 * rand' -%>
+    <%- when 'date' then 'Date.today' -%>
+    <%- when 'datetime' then 'Time.now' -%>
+    <%- when *['decimal', 'float'] then '0.0' -%>
+    <%- when 'integer' then '0' -%>
     <%- else  attribute.type -%>
   <%- end -%>
   <%= "#{attribute.name} { #{random} }" %>
