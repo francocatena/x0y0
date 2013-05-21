@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :load_current_user, only: [:edit_profile, :update_profile]
+  include Users::Profile
+
+  before_action :authenticate_user!
   
   check_authorization
   load_and_authorize_resource
@@ -29,10 +30,6 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @title = t 'view.users.new_title'
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
   end
 
   # GET /users/1/edit
@@ -53,13 +50,13 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/1
+  # PATCH /users/1
   def update
-    authorize! :assign_roles, @user if params[:user] && params[:user][:roles]
+    authorize! :assign_roles, @user if user_params[:role]
     @title = t 'view.users.edit_title'
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(user_params)
         format.html { redirect_to @user, notice: t('view.users.correctly_updated') }
       else
         format.html { render action: 'edit' }
@@ -69,28 +66,6 @@ class UsersController < ApplicationController
   rescue ActiveRecord::StaleObjectError
     flash.alert = t 'view.users.stale_object_error'
     redirect_to edit_user_url(@user)
-  end
-  
-  # GET /users/1/edit_profile
-  def edit_profile
-    @title = t('view.users.edit_profile')
-  end
-  
-  # PUT /users/1/update_profile
-  def update_profile
-    @title = t('view.users.edit_profile')
-    
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to(edit_profile_user_url(@user), notice: t('view.users.profile_correctly_updated')) }
-      else
-        format.html { render action: 'edit_profile' }
-      end
-    end
-
-  rescue ActiveRecord::StaleObjectError
-    flash.alert = t('view.users.stale_object_error')
-    redirect_to edit_profile_user_url(@user)
   end
 
   # DELETE /users/1
@@ -104,7 +79,9 @@ class UsersController < ApplicationController
   
   private
   
-  def load_current_user
-    @user = current_user
+  def user_params
+    params.require(:user).permit(
+      :name, :lastname, :email, :password, :password_confirmation, :role, :remember_me, :lock_version
+    )
   end
 end

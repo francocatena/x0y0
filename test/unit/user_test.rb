@@ -63,8 +63,9 @@ class UserTest < ActiveSupport::TestCase
     @user.password_confirmation = 'admin125'
     assert @user.invalid?
     assert_equal 1, @user.errors.count
-    assert_equal [error_message_from_model(@user, :password, :confirmation)],
-      @user.errors[:password]
+    assert_equal [
+      error_message_from_model(@user, :password_confirmation, :confirmation)
+    ], @user.errors[:password_confirmation]
   end
   
   test 'validates length of _short_ attributes' do

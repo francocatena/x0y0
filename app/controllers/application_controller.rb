@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
-  include Application::Exceptions
+  include Application::CancanStrongParameters
 
   protect_from_forgery
-  after_filter -> { expires_now if user_signed_in? }
+  after_action -> { expires_now if user_signed_in? }
   
   def user_for_paper_trail
     current_user.try(:id)
