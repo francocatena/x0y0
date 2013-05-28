@@ -7,17 +7,6 @@ GIT
       activerecord (>= 4.0.0.beta, < 5.0)
       railties (>= 4.0.0.beta, < 5.0)
 
-GIT
-  remote: git://github.com/plataformatec/devise.git
-  revision: 6b5988d756d780903bf8c9ccb3e2b3b724ccebe8
-  branch: rails4
-  specs:
-    devise (2.2.4)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      warden (~> 1.2.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -76,6 +65,11 @@ GEM
     coffee-script-source (1.6.2)
     connection_pool (1.0.0)
     database_cleaner (1.0.1)
+    devise (3.0.0.rc)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      warden (~> 1.2.1)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -99,7 +93,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     minitest (4.7.4)
-    multi_json (1.7.3)
+    multi_json (1.7.4)
     net-scp (1.1.1)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -140,7 +134,7 @@ GEM
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0.rc0)
       tilt (~> 1.3)
-    selenium-webdriver (2.32.1)
+    selenium-webdriver (2.33.0)
       childprocess (>= 0.2.5)
       multi_json (~> 1.0)
       rubyzip
@@ -154,7 +148,7 @@ GEM
     simple_form (3.0.0.rc)
       actionpack (>= 4.0.0.rc1, < 4.1)
       activemodel (>= 4.0.0.rc1, < 4.1)
-    sprockets (2.9.3)
+    sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -205,7 +199,7 @@ DEPENDENCIES
   capybara
   coffee-rails
   database_cleaner
-  devise!
+  devise (~> 3.0.0.rc)
   fabrication
   faker
   jquery-rails
@@ -217,7 +211,7 @@ DEPENDENCIES
   sass-rails (= 4.0.0.rc1)
   selenium-webdriver
   sidekiq
-  simple_form (~> 3.0.0.beta1)
+  simple_form (~> 3.0.0.rc)
   turbolinks
   turn
   uglifier
