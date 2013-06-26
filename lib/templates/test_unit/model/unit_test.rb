@@ -8,7 +8,7 @@ class <%= class_name %>Test < ActiveSupport::TestCase
 
   test 'create' do
     assert_difference ['<%= class_name %>.count', 'Version.count'] do
-      @<%= singular_table_name %> = <%= class_name %>.create(Fabricate.attributes_for(:<%= singular_table_name %>))
+      assert <%= class_name %>.create(Fabricate.attributes_for(:<%= singular_table_name %>))
     end 
   end
     
