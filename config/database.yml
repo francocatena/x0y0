@@ -1,0 +1,18 @@
+common: &common
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postman
+  password: postman
+  
+development:
+  database: postman_development
+  <<: *common
+
+test:
+  database: postman_test
+  <<: *common
+
+production:
+  database: postman_production
+  <<: *common
