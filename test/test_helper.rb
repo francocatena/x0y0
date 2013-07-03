@@ -12,4 +12,9 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def assert_error(model, attribute, type, options = {})
+    assert model.errors[attribute].include?(
+      model.errors.generate_message(attribute, type, options)
+    )
+  end
 end

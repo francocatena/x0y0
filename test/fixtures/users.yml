@@ -1,0 +1,11 @@
+franco:
+  name: Franco
+  lastname: Catena
+  email: francocatena@gmail.com
+  password_digest: <%= BCrypt::Password.create('123', cost: BCrypt::Engine::MIN_COST) %>
+
+john:
+  name: John
+  lastname: Doe
+  email: john@doe.com
+  password_digest: <%= BCrypt::Password.create('123', cost: BCrypt::Engine::MIN_COST) %>

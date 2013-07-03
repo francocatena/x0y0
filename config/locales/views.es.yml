@@ -1,0 +1,26 @@
+es:
+  app_name: 'Soporte'
+
+  messages:
+    confirmation: '¿Está seguro?'
+
+  navigation:
+    destroy: 'Eliminar'
+    edit: 'Editar'
+    index: 'Listado'
+    show: 'Ver'
+
+  users:
+    create:
+      success: 'Usuario creado correctamente'
+    edit:
+      title: 'Editar usuario'
+    index:
+      new: 'Nuevo usuario'
+      title: 'Listado de usuarios'
+    new:
+      title: 'Crear usuario'
+    show:
+      title: 'Ver usuario'
+    update:
+      success: 'Usuario actualizado correctamente'

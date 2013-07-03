@@ -1,0 +1,17 @@
+<p>
+  <strong><%= User.human_attribute_name 'name' %>:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name 'lastname' %>:</strong>
+  <%= @user.lastname %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name 'email' %>:</strong>
+  <%= mail_to @user.email %>
+</p>
+
+<%= link_to_edit edit_user_path(@user) %> |
+<%= link_to_index users_path %>

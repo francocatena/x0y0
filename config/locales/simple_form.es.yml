@@ -1,0 +1,23 @@
+es:
+  simple_form:
+    "yes": 'Si'
+    "no": 'No'
+    required:
+      text: 'requerido'
+      mark: '*'
+    error_notification:
+      default_message: 'Por favor revise los problemas encontrados'
+    # Labels and hints examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+
