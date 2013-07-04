@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-lg-4 col-offset-4">
+    <div class="well">
+      <h1 class="text-center"><%= @title %></h1>
+
+      <%= form_tag sessions_path, novalidate: true do %>
+        <div class="form-inputs">
+          <%= label_tag :email, t('.email'), class: 'control-label' %>
+          <div class="controls">
+            <%= email_field_tag :email, params[:email], autofocus: true %>
+          </div>
+
+          <%= label_tag :password, t('.password'), class: 'control-label' %>
+          <div class="controls">
+            <%= password_field_tag :password %>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <%= submit_tag t('.log_in'), class: 'btn' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

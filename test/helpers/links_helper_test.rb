@@ -10,4 +10,11 @@ class LinksHelperTest < ActionView::TestCase
 
     assert_equal expected, link_to_destroy('#')
   end
+
+  test 'link to actions' do
+    assert_equal link_to(t('navigation.edit'), '#'), link_to_edit('#')
+    assert_equal link_to(t('navigation.index'), '#'), link_to_index('#')
+    assert_equal link_to(t('navigation.show'), '#'), link_to_show('#')
+    assert_equal link_to(t('.show'), '#'), link_to_new('#')
+  end
 end

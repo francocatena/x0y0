@@ -2,7 +2,9 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   setup do
-    @user = users(:franco)
+    @user = users(:john)
+
+    login
   end
 
   test 'should get index' do

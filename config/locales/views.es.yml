@@ -10,6 +10,18 @@ es:
     index: 'Listado'
     show: 'Ver'
 
+  sessions:
+    new:
+      title: 'Ingreso'
+      log_in: 'Ingresar'
+      email: 'Correo'
+      password: 'Contraseña'
+    create:
+      invalid: 'Tu correo y/o contraseña no están bien =('
+      logged_in: 'Bienvenido'
+    destroy:
+      logged_out: 'Hasta la próxima'
+
   users:
     create:
       success: 'Usuario creado correctamente'

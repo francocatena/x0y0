@@ -18,3 +18,9 @@ class ActiveSupport::TestCase
     )
   end
 end
+
+class ActionController::TestCase
+  def login
+    session[:user_id] = users(:franco).id
+  end
+end

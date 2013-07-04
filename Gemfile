@@ -12,6 +12,7 @@ gem 'jbuilder'
 gem 'unicorn'
 gem 'bcrypt-ruby'
 gem 'simple_form', '3.0.0.rc'
+gem 'rack-mini-profiler'
 
 group :doc do
   gem 'sdoc', require: false
