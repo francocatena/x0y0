@@ -2,8 +2,8 @@ common: &common
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: postman
-  password: postman
+  username: <%= ENV['TRAVIS'] ? 'postgres' : 'postman' %>
+  password: <%= ENV['TRAVIS'] ? '' : 'postman' %>
   
 development:
   database: postman_development
