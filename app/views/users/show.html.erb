@@ -1,15 +1,6 @@
-<p>
-  <strong><%= User.human_attribute_name 'name' %>:</strong>
-  <%= @user.name %>
-</p>
+<h1><%= @user %></h1>
 
 <p>
-  <strong><%= User.human_attribute_name 'lastname' %>:</strong>
-  <%= @user.lastname %>
-</p>
-
-<p>
-  <strong><%= User.human_attribute_name 'email' %>:</strong>
   <%= mail_to @user.email %>
 </p>
 

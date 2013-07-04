@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   include Attributes::Strip
   include Attributes::Downcase
+  include Users::Overrides
   include Users::Validation
 
   strip_fields :name, :lastname, :email

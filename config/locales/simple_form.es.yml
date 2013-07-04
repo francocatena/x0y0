@@ -6,7 +6,7 @@ es:
       text: 'requerido'
       mark: '*'
     error_notification:
-      default_message: 'Por favor revise los problemas encontrados'
+      default_message: 'Hay algunos campos con errores'
     # Labels and hints examples
     # labels:
     #   defaults:
