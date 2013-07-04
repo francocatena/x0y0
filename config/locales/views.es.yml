@@ -3,11 +3,13 @@ es:
 
   messages:
     confirmation: '¿Está seguro?'
+    not_authorized: 'Debe ingresar para ver el contenido'
 
   navigation:
     destroy: 'Eliminar'
     edit: 'Editar'
     index: 'Listado'
+    logout: 'Salir'
     show: 'Ver'
 
   sessions:
