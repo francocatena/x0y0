@@ -13,7 +13,7 @@
     <% if current_user %>
       <div class="nav-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
-          <li><%= link_to User.model_name.human(count: 0), users_path %></li>
+          <%= menu_item_for User, users_path %>
         </ul>
 
         <ul class="nav navbar-nav pull-right">
