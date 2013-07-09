@@ -39,6 +39,7 @@ es:
     index:
       new: 'Nuevo usuario'
       title: 'Listado de usuarios'
+      empty_html: 'No hay usuarios, puede crear uno con el botón <span class="label label-info">Nuevo usuario</span>'
     new:
       title: 'Crear usuario'
     show:
