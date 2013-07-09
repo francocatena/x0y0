@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-4 col-offset-4">
     <div class="well">
-      <%= form_tag sessions_path, novalidate: true do %>
+      <%= form_tag sessions_path, novalidate: 'novalidate' do %>
         <div class="form-inputs">
           <%= label_tag :email, t('.email'), class: 'control-label' %>
           <div class="controls">

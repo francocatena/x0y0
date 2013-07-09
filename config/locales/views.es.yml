@@ -24,6 +24,13 @@ es:
     destroy:
       logged_out: 'Hasta la próxima'
 
+  profiles:
+    edit:
+      title: 'Mis datos'
+      submit: 'Actualizar mis datos'
+    update:
+      success: 'Tus datos se actualizaron correctamente'
+
   users:
     create:
       success: 'Usuario creado correctamente'
