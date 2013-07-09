@@ -1,0 +1,48 @@
+es:
+  app_name: 'X0Y0'
+
+  messages:
+    confirmation: '¿Está seguro?'
+    not_authorized: 'Debe ingresar para ver el contenido'
+
+  navigation:
+    destroy: 'Eliminar'
+    edit: 'Editar'
+    index: 'Listado'
+    logout: 'Salir'
+    show: 'Ver'
+
+  sessions:
+    new:
+      title: 'Ingreso'
+      log_in: 'Ingresar'
+      email: 'Correo'
+      password: 'Contraseña'
+    create:
+      invalid: 'Tu correo y/o contraseña no están bien =('
+      logged_in: 'Bienvenido'
+    destroy:
+      logged_out: 'Hasta la próxima'
+
+  profiles:
+    edit:
+      title: 'Mis datos'
+      submit: 'Actualizar mis datos'
+    update:
+      success: 'Tus datos se actualizaron correctamente'
+
+  users:
+    create:
+      success: 'Usuario creado correctamente'
+    edit:
+      title: 'Editar usuario'
+    index:
+      new: 'Nuevo usuario'
+      title: 'Listado de usuarios'
+      empty_html: 'No hay usuarios, puede crear uno con el botón <span class="label label-info">Nuevo usuario</span>'
+    new:
+      title: 'Crear usuario'
+    show:
+      title: 'Ver usuario'
+    update:
+      success: 'Usuario actualizado correctamente'

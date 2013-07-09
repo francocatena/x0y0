@@ -1,0 +1,18 @@
+common: &common
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: <%= ENV['TRAVIS'] ? 'postgres' : 'x0y0' %>
+  password: <%= ENV['TRAVIS'] ? '' : 'x0y0' %>
+  
+development:
+  database: x0y0_development
+  <<: *common
+
+test:
+  database: x0y0_test
+  <<: *common
+
+production:
+  database: x0y0_production
+  <<: *common

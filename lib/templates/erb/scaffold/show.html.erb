@@ -1,0 +1,11 @@
+<h2><%%= @<%= singular_table_name %> %></h2>
+
+<%- attributes.each do |attribute| -%>
+<p>
+  <strong><%%= <%= singular_table_name.camelize %>.human_attribute_name '<%= attribute.name %>' %></strong>:
+  <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+</p>
+<%- end -%>
+
+<%%= link_to_edit edit_<%= singular_table_name %>_path(@<%= singular_table_name %>) %> |
+<%%= link_to_index <%= index_helper %>_path %>
