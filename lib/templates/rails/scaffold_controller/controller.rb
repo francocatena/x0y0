@@ -34,8 +34,7 @@ class <%= controller_class_name %>Controller < ApplicationController
         format.html { redirect_to @<%= singular_table_name %>, notice: t('.success') }
         format.json { render action: 'show', status: :created, location: @<%= singular_table_name %> }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @<%= singular_table_name %>.errors, status: :unprocessable_entity }
+        respond_with_error format, 'new'
       end
     end
   end
@@ -49,8 +48,7 @@ class <%= controller_class_name %>Controller < ApplicationController
         format.html { redirect_to @<%= singular_table_name %>, notice: t('.success') }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @<%= singular_table_name %>.errors, status: :unprocessable_entity }
+        respond_with_error format, 'edit'
       end
     end
   rescue ActiveRecord::StaleObjectError
@@ -67,6 +65,11 @@ class <%= controller_class_name %>Controller < ApplicationController
   end
 
   private
+
+  def respond_with_error format, action
+    format.html { render action: action }
+    format.json { render json: @<%= singular_table_name %>.errors, status: :unprocessable_entity }
+  end
 
   def set_<%= singular_table_name %>
     @<%= singular_table_name %> = <%= orm_class.find(class_name, "params[:id]") %>
