@@ -11,6 +11,7 @@
  *= require_self
  *= require bootstrap
  *= require bootstrap-glyphicons
+ *= require main
  *= require icons
  *= require forms
  *= require profiles
