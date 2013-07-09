@@ -37,8 +37,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: t('.success') }
         format.json { render action: 'show', status: :created, location: @user }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        respond_with_error format, 'new'
       end
     end
   end
@@ -53,8 +52,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: t('.success') }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        respond_with_error format, 'edit'
       end
     end
   end
@@ -70,6 +68,11 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def respond_with_error(format, action)
+    format.html { render action: action }
+    format.json { render json: @user.errors, status: :unprocessable_entity }
+  end
 
   def set_user
     @user = User.find(params[:id])
