@@ -6,11 +6,11 @@ module LinksHelper
     options[:data][:method]  ||= :delete
     options[:data][:confirm] ||= t('messages.confirmation')
 
-    link_to t('navigation.destroy'), *args, options
+    link_with_icon({ action: 'destroy', icon: 'glyphicon-trash' }, *(args << options))
   end
 
   def link_to_edit(*args)
-    link_to t('navigation.edit'), *args
+    link_with_icon({ action: 'edit', icon: 'glyphicon-pencil' }, *args)
   end
 
   def link_to_index(*args)
@@ -22,6 +22,20 @@ module LinksHelper
   end
 
   def link_to_show(*args)
-    link_to t('navigation.show'), *args
+    link_with_icon({ action: 'show', icon: 'glyphicon-search' }, *args)
+  end
+
+  private
+
+  def link_with_icon(options = {}, *args)
+    icon = content_tag(:span, nil, class: "glyphicon #{options.fetch(:icon)}")
+    arg_options = args.extract_options!
+
+    arg_options.reverse_merge!(
+      title: t("navigation.#{options.fetch(:action)}"),
+      class: 'icon'
+    )
+
+    link_to icon, *args, arg_options
   end
 end

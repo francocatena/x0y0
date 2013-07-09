@@ -121,7 +121,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt-ruby
+  bcrypt-ruby (~> 3.0.0)
   coffee-rails
   jbuilder
   jquery-rails

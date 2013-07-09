@@ -10,6 +10,8 @@
  *
  *= require_self
  *= require bootstrap
+ *= require bootstrap-glyphicons
+ *= require icons
  *= require forms
  *= require users
  */
