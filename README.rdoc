@@ -1,9 +1,6 @@
 = Postman
 
-Skeleton project, empty but with all the stuff I need to begin with =)
-
-All you have to do for start using it is change all the Postman (and postman) strings
-with the name of your application...
+Support app
 
 === Build Status {<img src="https://secure.travis-ci.org/francocatena/postman.png"/>}[http://travis-ci.org/francocatena/postman]
 
@@ -13,7 +10,7 @@ with the name of your application...
 
 == (The MIT License)
 
-Copyright (c) 2012-2013 Franco Catena
+Copyright (c) 2013 Cirope S.A.
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
