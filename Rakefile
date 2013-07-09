@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-X0Y0::Application.load_tasks
+Postman::Application.load_tasks

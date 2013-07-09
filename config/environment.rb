@@ -2,4 +2,4 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the Rails application.
-X0Y0::Application.initialize!
+Postman::Application.initialize!

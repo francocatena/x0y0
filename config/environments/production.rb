@@ -1,4 +1,4 @@
-X0Y0::Application.configure do
+Postman::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

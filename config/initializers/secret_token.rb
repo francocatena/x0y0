@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-X0Y0::Application.config.secret_key_base = 'd8cc430988308a70ef5e9ba9a26a089bf0deffbc0d8b59328b6ec75ed314411e06672696d84e1b19cba865a9ec553514fa19302d52757a02e931f7f677bd5fe2'
+Postman::Application.config.secret_key_base = 'd8cc430988308a70ef5e9ba9a26a089bf0deffbc0d8b59328b6ec75ed314411e06672696d84e1b19cba865a9ec553514fa19302d52757a02e931f7f677bd5fe2'
