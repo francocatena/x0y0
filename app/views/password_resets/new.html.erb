@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-lg-4 col-offset-4">
+    <div class="well">
+      <%= form_tag password_resets_path, novalidate: 'novalidate' do %>
+        <div class="form-inputs">
+          <%= label_tag :email, t('.email'), class: 'control-label' %>
+          <div class="controls">
+            <%= email_field_tag :email, params[:email], autofocus: true %>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <%= submit_tag t('.send_instructions'), class: 'btn' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4 col-offset-4">
+    <p><%= link_to t('.back'), root_path %></p>
+  </div>
+</div>

@@ -12,6 +12,12 @@
           <div class="controls">
             <%= password_field_tag :password %>
           </div>
+
+          <div class="checkbox">
+            <label>
+              <%= check_box_tag :remember_me, 1, params[:remember_me] %> <%= t('.remember_me') %>
+            </label>
+          </div>
         </div>
 
         <div class="form-actions">
@@ -19,5 +25,10 @@
         </div>
       <% end %>
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4 col-offset-4">
+    <p><%= link_to t('.forgot_password'), new_password_reset_path %></p>
   </div>
 </div>
