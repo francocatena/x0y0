@@ -1,0 +1,11 @@
+smtp:
+  address: 'smtp.gmail.com'
+  port: 587
+  domain: 'gmail.com'
+  user_name: 'username@change.me'
+  password: '<password>'
+  authentication: 'plain'
+  enable_starttls_auto: true
+  
+host: 'localhost:3000'
+email: 'noreply@change.me'
