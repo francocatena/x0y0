@@ -17,3 +17,6 @@
 
 # Ignore generated docs
 /doc
+
+# Ignore local config file
+/config/app_config.yml

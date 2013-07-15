@@ -1,0 +1,4 @@
+es:
+  user_mailer:
+    password_reset:
+      subject: 'Restablecer contraseña'

@@ -21,6 +21,6 @@ end
 
 class ActionController::TestCase
   def login
-    session[:user_id] = users(:franco).id
+    cookies[:auth_token] = users(:franco).auth_token
   end
 end

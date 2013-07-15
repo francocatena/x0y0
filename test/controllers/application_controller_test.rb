@@ -10,7 +10,7 @@ class ApplicationControllerTest < ActionController::TestCase
     assert_nil current_user
   end
 
-  test 'should load current user when session_id is present' do
+  test 'should load current user when auth_token is present' do
     login
 
     assert_not_nil current_user
