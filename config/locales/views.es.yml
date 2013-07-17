@@ -64,3 +64,4 @@ es:
       title: 'Ver usuario'
     update:
       success: 'Usuario actualizado correctamente'
+      stale_object_error: 'No se pudo actualizar el usuario, revise los datos e inténtelo nuevamente'

@@ -39,7 +39,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     end
   end
 
-  # PATCH <%= route_url %>/1
+  # PUT/PATCH <%= route_url %>/1
   def update
     @title = t('<%= plural_table_name %>.edit.title')
 
@@ -59,7 +59,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   def destroy
     @<%= orm_instance.destroy %>
     respond_to do |format|
-      format.html { redirect_to <%= index_helper %>_url, notice: t('.success') }
+      format.html { redirect_to <%= index_helper %>_url, notice: t('.success') }
       format.json { head :no_content }
     end
   end
