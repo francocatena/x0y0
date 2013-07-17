@@ -52,6 +52,8 @@ es:
   users:
     create:
       success: 'Usuario creado correctamente'
+    destroy:
+      success: 'Usuario eliminado'
     edit:
       title: 'Editar usuario'
     index:
