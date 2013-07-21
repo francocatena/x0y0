@@ -28,31 +28,29 @@ class UsersController < ApplicationController
     @title = t('users.new.title')
     @user = User.new(user_params)
 
-    creation_response
+    create_and_respond
   end
 
   # PATCH/PUT /users/1
   def update
     @title = t('users.edit.title')
 
-    update_response
-  rescue ActiveRecord::StaleObjectError
-    redirect_to edit_user_url(@user), alert: t('.stale_object_error')
+    update_and_respond
   end
 
   # DELETE /users/1
   def destroy
-    destroy_response
+    destroy_and_respond
   end
 
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find params[:id]
   end
 
   def set_title
-    @title = t('.title')
+    @title = t '.title'
   end
 
   def user_params
@@ -64,7 +62,12 @@ class UsersController < ApplicationController
     @user
   end
 
-  def resources_url
-    users_url
+  alias_method :after_create_url, :resource
+  alias_method :after_update_url, :resource
+
+  def edit_resource_url
+    edit_user_url @user
   end
+
+  alias_method :after_destroy_url, :users_url
 end
