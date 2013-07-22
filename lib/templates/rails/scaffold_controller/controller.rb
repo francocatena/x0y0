@@ -28,21 +28,19 @@ class <%= controller_class_name %>Controller < ApplicationController
     @title = t '<%= plural_table_name %>.new.title'
     @<%= singular_table_name %> = <%= orm_class.build(class_name, "#{singular_table_name}_params") %>
 
-    creation_response
+    create_and_respond
   end
 
   # PUT/PATCH <%= route_url %>/1
   def update
     @title = t '<%= plural_table_name %>.edit.title'
 
-    update_response
-  rescue ActiveRecord::StaleObjectError
-    redirect_to edit_<%= singular_table_name %>_url(@<%= singular_table_name %>), alert: t('.stale_object_error')
+    update_and_respond
   end
 
   # DELETE <%= route_url %>/1
   def destroy
-    destroy_response
+    destroy_and_respond
   end
 
   private
@@ -63,9 +61,13 @@ class <%= controller_class_name %>Controller < ApplicationController
   def resource
     @<%= singular_table_name %>
   end
+  alias_method :after_create_url, :resource
+  alias_method :after_update_url, :resource
 
-  def resources_url
-    <%= index_helper %>_url
+  def edit_resource_url
+    edit_<%= singular_table_name %>_url @<%= singular_table_name %>
   end
+
+  alias_method :after_destroy_url, :<%= index_helper %>_url
 end
 <% end -%>
