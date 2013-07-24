@@ -69,5 +69,5 @@ class UsersController < ApplicationController
     edit_user_url @user
   end
 
-  alias_method :after_destroy_url, :users_url
+  def after_destroy_url; users_url; end
 end
