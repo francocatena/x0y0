@@ -1,16 +1,20 @@
 <div class="row">
-  <div class="col-lg-4 col-offset-4">
+  <div class="col-lg-4 col-lg-offset-4">
     <div class="well">
       <%= form_tag sessions_path, novalidate: 'novalidate' do %>
         <div class="form-inputs">
-          <%= label_tag :email, t('.email'), class: 'control-label' %>
-          <div class="controls">
-            <%= email_field_tag :email, params[:email], autofocus: true %>
+          <div class="form-group">
+            <%= label_tag :email, t('.email'), class: 'control-label' %>
+            <div class="controls">
+              <%= email_field_tag :email, params[:email], class: 'form-control', autofocus: true %>
+            </div>
           </div>
 
-          <%= label_tag :password, t('.password'), class: 'control-label' %>
-          <div class="controls">
-            <%= password_field_tag :password %>
+          <div class="form-group">
+            <%= label_tag :password, t('.password'), class: 'control-label' %>
+            <div class="controls">
+              <%= password_field_tag :password, nil, class: 'form-control' %>
+            </div>
           </div>
 
           <div class="checkbox">
@@ -21,14 +25,14 @@
         </div>
 
         <div class="form-actions">
-          <%= submit_tag t('.log_in'), class: 'btn' %>
+          <%= submit_tag t('.log_in'), class: 'btn btn-default' %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-lg-4 col-offset-4">
+  <div class="col-lg-4 col-lg-offset-4">
     <p><%= link_to t('.forgot_password'), new_password_reset_path %></p>
   </div>
 </div>
