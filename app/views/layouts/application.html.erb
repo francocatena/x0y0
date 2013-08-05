@@ -9,6 +9,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="alert loading-caption hidden">
+    <strong><%= t 'navigation.loading' %></strong>
+  </div>
   <div class="container">
     <%= render 'shared/menu' %>
     <%= render 'shared/flash' if flash_message %>

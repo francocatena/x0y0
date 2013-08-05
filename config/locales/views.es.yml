@@ -9,6 +9,7 @@ es:
     destroy: 'Eliminar'
     edit: 'Editar'
     index: 'Listado'
+    loading: 'Cargando...'
     logout: 'Salir'
     show: 'Ver'
 
