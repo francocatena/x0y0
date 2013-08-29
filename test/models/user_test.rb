@@ -36,4 +36,15 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
     assert_equal 'francocatena@gmail.com', @user.email
   end
+
+  test 'validates attributes length' do
+    @user.name = 'abcde' * 52
+    @user.lastname = 'abcde' * 52
+    @user.email = 'abcde' * 52
+    
+    assert @user.invalid?
+    assert_error @user, :name, :too_long, count: 255
+    assert_error @user, :lastname, :too_long, count: 255
+    assert_error @user, :email, :too_long, count: 255
+  end
 end

@@ -3,6 +3,7 @@ module Users::Validation
 
   included do
     validates :name, :lastname, presence: true
+    validates :name, :lastname, :email, length: { maximum: 255 }
     validates :email,
       uniqueness: { case_sensitive: false },
       presence: true,
