@@ -28,7 +28,6 @@ module LinksHelper
   private
 
   def link_with_icon(options = {}, *args)
-    icon = content_tag(:span, nil, class: "glyphicon #{options.fetch(:icon)}")
     arg_options = args.extract_options!
 
     arg_options.reverse_merge!(
@@ -36,6 +35,8 @@ module LinksHelper
       class: 'icon'
     )
 
-    link_to icon, *args, arg_options
+    link_to *args, arg_options do
+      content_tag(:span, nil, class: "glyphicon #{options.fetch(:icon)}")
+    end
   end
 end
