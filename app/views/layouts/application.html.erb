@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <title><%= title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', data: { turbolinks_track: true }, media: 'all' %>
+  <%= javascript_include_tag 'application', data: { turbolinks_track: true } %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="alert alert-warning loading-caption hidden">
+  <div class="alert alert-warning hidden loading-caption">
     <strong><%= t 'navigation.loading' %></strong>
   </div>
   <div class="container">
