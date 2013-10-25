@@ -2,18 +2,18 @@ class SessionsController < ApplicationController
   def new
     redirect_to default_url if current_user
 
-    @title = t('.title')
+    @title = t '.title'
   end
 
   def create
-    @title = t('sessions.new.title')
-    user = User.find_by_email(params[:email])
+    @title = t 'sessions.new.title'
+    user = User.find_by email: params[:email]
 
     if user && user.authenticate(params[:password])
       store_auth_token user
       redirect_to default_url, notice: t('.logged_in')
     else
-      flash.now.alert = t('.invalid')
+      flash.now.alert = t '.invalid'
       render 'new'
     end
   end
