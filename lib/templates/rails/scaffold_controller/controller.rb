@@ -4,7 +4,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   before_action :set_<%= singular_table_name %>, only:  [:show, :edit, :update, :destroy]
   before_action :set_title, only: [:index, :show, :new, :edit]
-  
+
   # GET <%= route_url %>
   def index
     @<%= plural_table_name %> = <%= class_name %>.all

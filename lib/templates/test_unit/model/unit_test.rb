@@ -8,7 +8,7 @@ class <%= class_name %>Test < ActiveSupport::TestCase
 
   test 'validates blank attributes' do
     @<%= singular_table_name %>.attr = ''
-    
+
     assert @<%= singular_table_name %>.invalid?
     assert_error @<%= singular_table_name %>, :attr, :blank
   end
