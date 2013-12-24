@@ -9,10 +9,15 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
-gem 'unicorn'
 gem 'bcrypt-ruby'
 gem 'simple_form'
 gem 'rack-mini-profiler'
+
+gem 'unicorn'
+
+group :development do
+  gem 'unicorn-rails'
+end
 
 group :doc do
   gem 'sdoc', require: false
