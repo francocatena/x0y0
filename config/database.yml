@@ -16,3 +16,7 @@ test:
 production:
   database: x0y0_production
   <<: *common
+
+sandbox:
+  database: x0y0_production
+  <<: *common

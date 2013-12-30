@@ -16,6 +16,10 @@ gem 'rack-mini-profiler'
 gem 'unicorn'
 
 group :development do
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv', '>= 2.0'
   gem 'unicorn-rails'
 end
 
