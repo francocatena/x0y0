@@ -1,7 +1,7 @@
-config_path = Rails.root + 'config' + 'app_config.yml'
+config_path = Rails.root + 'config' + 'application.yml'
 
 if File.exists?(config_path)
-  APP_CONFIG = YAML.load config_path.read
+  APPLICATION = YAML.load config_path.read
 else
-  raise "You must have a configuration file in #{config_path}, see config/app_config.example.yml"
+  raise "You must have a configuration file in #{config_path}, see config/application.example.yml"
 end
