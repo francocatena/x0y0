@@ -12,7 +12,7 @@ All you have to do for start using it is change all the X0Y0 (and x0y0) strings 
 
 == (The MIT License)
 
-Copyright (c) 2012-2013 Franco Catena
+Copyright (c) 2012-2014 Franco Catena
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
