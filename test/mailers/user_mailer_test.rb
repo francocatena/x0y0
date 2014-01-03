@@ -9,5 +9,6 @@ class UserMailerTest < ActionMailer::TestCase
     assert_equal [user.email], mail.to
     assert_equal [APPLICATION['email']], mail.from
     assert_match user.name, mail.body.encoded
+    assert_match user.name, mail.text_part.body.decoded
   end
 end
