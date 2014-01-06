@@ -37,7 +37,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 'francocatena@gmail.com', @user.email
   end
 
-  test 'validates attributes length' do
+  test 'attributes length' do
     @user.name = 'abcde' * 52
     @user.lastname = 'abcde' * 52
     @user.email = 'abcde' * 52

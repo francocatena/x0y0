@@ -6,14 +6,14 @@ class <%= class_name %>Test < ActiveSupport::TestCase
     @<%= singular_table_name %> = <%= table_name %>(:one)
   end
 
-  test 'validates blank attributes' do
+  test 'blank attributes' do
     @<%= singular_table_name %>.attr = ''
 
     assert @<%= singular_table_name %>.invalid?
     assert_error @<%= singular_table_name %>, :attr, :blank
   end
 
-  test 'validates unique attributes' do
+  test 'unique attributes' do
     @<%= singular_table_name %>.attr = <%= table_name %>(:two).attr
 
     assert @<%= singular_table_name %>.invalid?
