@@ -1,11 +1,11 @@
 class PasswordResetsController < ApplicationController
   def new
-    @title = t('.title')
+    @title = t '.title'
   end
 
   def create
-    @title = t('password_resets.new.title')
-    user = User.find_by(email: params[:email])
+    @title = t 'password_resets.new.title'
+    user = User.find_by email: params[:email]
 
     if user
       user.prepare_password_reset
@@ -13,18 +13,18 @@ class PasswordResetsController < ApplicationController
 
       redirect_to root_url, notice: t('.success')
     else
-      flash.now[:alert] = t('.not_found')
+      flash.now[:alert] = t '.not_found'
       render 'new'
     end
   end
 
   def edit
-    @title = t('.title')
+    @title = t '.title'
     @user = User.find_by! password_reset_token: params[:id]
   end
 
   def update
-    @title = t('password_resets.edit.title')
+    @title = t 'password_resets.edit.title'
     @user = User.find_by! password_reset_token: params[:id]
 
     if @user.password_reset_sent_at < 2.hours.ago
