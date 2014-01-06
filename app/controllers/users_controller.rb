@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @title = t('users.new.title')
+    @title = t 'users.new.title'
     @user = User.new(user_params)
 
     create_and_respond
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    @title = t('users.edit.title')
+    @title = t 'users.edit.title'
 
     update_and_respond
   end
