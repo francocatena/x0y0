@@ -31,9 +31,9 @@ class SessionsController < ApplicationController
 
   def store_auth_token user
     if params[:remember_me]
-      cookies.permanent[:auth_token] = user.auth_token
+      cookies.permanent.encrypted[:auth_token] = user.auth_token
     else
-      cookies[:auth_token] = user.auth_token
+      cookies.encrypted[:auth_token] = user.auth_token
     end
   end
 end

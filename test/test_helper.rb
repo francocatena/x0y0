@@ -18,6 +18,6 @@ end
 
 class ActionController::TestCase
   def login
-    cookies[:auth_token] = users(:franco).auth_token
+    cookies.encrypted[:auth_token] = users(:franco).auth_token
   end
 end

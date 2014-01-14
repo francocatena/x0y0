@@ -25,7 +25,7 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test 'should get destroy' do
-    cookies[:auth_token] = @user.auth_token
+    cookies.encrypted[:auth_token] = @user.auth_token
 
     assert_not_nil current_user
 
