@@ -2,7 +2,7 @@
 class <%= controller_class_name %>Controller < ApplicationController
   include Responder
 
-  before_action :set_<%= singular_table_name %>, only:  [:show, :edit, :update, :destroy]
+  before_action :set_<%= singular_table_name %>, only: [:show, :edit, :update, :destroy]
   before_action :set_title, only: [:index, :show, :new, :edit]
 
   # GET <%= route_url %>
