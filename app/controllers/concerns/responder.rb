@@ -33,21 +33,25 @@ module Responder
     respond_to do |format|
       format.html { redirect_to after_destroy_url, notice: t('.success') }
       format.json { head :no_content }
+      format.js   { redirect_to after_destroy_url }
     end
   end
 
   def respond_with_error format, action
     format.html { render action: action }
     format.json { render json: resource.errors, status: :unprocessable_entity }
+    format.js   { render action: action }
   end
 
   def respond_successful_update format
     format.html { redirect_to after_update_url, notice: t('.success') }
     format.json { head :no_content }
+    format.js   { redirect_to after_update_url }
   end
 
   def respond_successful_creation format
     format.html { redirect_to after_create_url, notice: t('.success') }
     format.json { render action: 'show', status: :created, location: after_create_url }
+    format.js   { redirect_to after_create_url }
   end
 end
