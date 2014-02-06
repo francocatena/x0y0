@@ -16,7 +16,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   # GET <%= route_url %>/new
   def new
-    @<%= singular_table_name %> = <%= orm_class.build(class_name) %>
+    @<%= singular_table_name %> = <%= orm_class.build class_name %>
   end
 
   # GET <%= route_url %>/1/edit
@@ -26,7 +26,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   # POST <%= route_url %>
   def create
     @title = t '<%= plural_table_name %>.new.title'
-    @<%= singular_table_name %> = <%= orm_class.build(class_name, "#{singular_table_name}_params") %>
+    @<%= singular_table_name %> = <%= orm_class.build class_name, "#{singular_table_name}_params" %>
 
     create_and_respond
   end
@@ -46,7 +46,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   private
 
   def set_<%= singular_table_name %>
-    @<%= singular_table_name %> = <%= orm_class.find(class_name, "params[:id]") %>
+    @<%= singular_table_name %> = <%= orm_class.find class_name, 'params[:id]' %>
   end
 
   def set_title
@@ -54,20 +54,12 @@ class <%= controller_class_name %>Controller < ApplicationController
   end
 
   def <%= singular_table_name %>_params
-    params.require(:<%= singular_table_name %>).permit(<%= attributes.map { |a| ":#{a.name}" }.join(', ') %>)
+    params.require(:<%= singular_table_name %>).permit <%= attributes.map { |a| ":#{a.name}" }.join(', ') %>
   end
   alias_method :resource_params, :<%= singular_table_name %>_params
 
   def resource
     @<%= singular_table_name %>
   end
-  alias_method :after_create_url, :resource
-  alias_method :after_update_url, :resource
-
-  def edit_resource_url
-    edit_<%= singular_table_name %>_url @<%= singular_table_name %>
-  end
-
-  alias_method :after_destroy_url, :<%= index_helper %>_url
 end
 <% end -%>
