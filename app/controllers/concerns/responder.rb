@@ -54,4 +54,15 @@ module Responder
     format.json { render action: 'show', status: :created, location: after_create_url }
     format.js   { redirect_to after_create_url }
   end
+
+  def after_create_url; resource; end
+  def after_update_url; resource; end
+
+  def edit_resource_url
+    polymorphic_url resource, action: :edit
+  end
+
+  def after_destroy_url
+    polymorphic_url resource.class
+  end
 end
