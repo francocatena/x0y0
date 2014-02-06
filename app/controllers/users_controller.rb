@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @title = t 'users.new.title'
-    @user = User.new(user_params)
+    @user = User.new user_params
 
     create_and_respond
   end
@@ -45,20 +45,20 @@ class UsersController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find params[:id]
-  end
+    def set_user
+      @user = User.find params[:id]
+    end
 
-  def set_title
-    @title = t '.title'
-  end
+    def set_title
+      @title = t '.title'
+    end
 
-  def user_params
-    params.require(:user).permit(:name, :lastname, :email, :password, :password_confirmation, :lock_version)
-  end
-  alias_method :resource_params, :user_params
+    def user_params
+      params.require(:user).permit :name, :lastname, :email, :password, :password_confirmation, :lock_version
+    end
+    alias_method :resource_params, :user_params
 
-  def resource
-    @user
-  end
+    def resource
+      @user
+    end
 end

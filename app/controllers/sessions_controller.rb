@@ -25,15 +25,15 @@ class SessionsController < ApplicationController
 
   private
 
-  def default_url
-    users_url
-  end
-
-  def store_auth_token user
-    if params[:remember_me]
-      cookies.permanent.encrypted[:auth_token] = user.auth_token
-    else
-      cookies.encrypted[:auth_token] = user.auth_token
+    def default_url
+      users_url
     end
-  end
+
+    def store_auth_token user
+      if params[:remember_me]
+        cookies.permanent.encrypted[:auth_token] = user.auth_token
+      else
+        cookies.encrypted[:auth_token] = user.auth_token
+      end
+    end
 end

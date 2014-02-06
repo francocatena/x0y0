@@ -45,21 +45,21 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   private
 
-  def set_<%= singular_table_name %>
-    @<%= singular_table_name %> = <%= orm_class.find class_name, 'params[:id]' %>
-  end
+    def set_<%= singular_table_name %>
+      @<%= singular_table_name %> = <%= orm_class.find class_name, 'params[:id]' %>
+    end
 
-  def set_title
-    @title = t '.title'
-  end
+    def set_title
+      @title = t '.title'
+    end
 
-  def <%= singular_table_name %>_params
-    params.require(:<%= singular_table_name %>).permit <%= attributes.map { |a| ":#{a.name}" }.join(', ') %>
-  end
-  alias_method :resource_params, :<%= singular_table_name %>_params
+    def <%= singular_table_name %>_params
+      params.require(:<%= singular_table_name %>).permit <%= attributes.map { |a| ":#{a.name}" }.join(', ') %>
+    end
+    alias_method :resource_params, :<%= singular_table_name %>_params
 
-  def resource
-    @<%= singular_table_name %>
-  end
+    def resource
+      @<%= singular_table_name %>
+    end
 end
 <% end -%>

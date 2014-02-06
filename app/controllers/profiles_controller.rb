@@ -21,11 +21,11 @@ class ProfilesController < ApplicationController
 
   private
 
-  def set_user
-    @user = current_user
-  end
+    def set_user
+      @user = current_user
+    end
 
-  def user_params
-    params.require(:user).permit(:name, :lastname, :email, :password, :password_confirmation)
-  end
+    def user_params
+      params.require(:user).permit(:name, :lastname, :email, :password, :password_confirmation)
+    end
 end
