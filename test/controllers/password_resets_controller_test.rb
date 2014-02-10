@@ -32,10 +32,12 @@ class PasswordResetsControllerTest < ActionController::TestCase
   end
 
   test 'should get redirected with expired token' do
-    @user.update_attributes password_reset_sent_at: 3.hours.ago
+    @user.update password_reset_sent_at: 3.hours.ago
+
     patch :update, id: @user.password_reset_token, user: {
       password: '123', password_confirmation: '123'
     }
+
     assert_redirected_to new_password_reset_url
   end
 end
