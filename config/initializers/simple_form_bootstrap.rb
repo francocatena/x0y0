@@ -1,14 +1,35 @@
-# Use this setup block to configure all options available in SimpleForm.
+inputs = %w[
+  CollectionSelectInput
+  DateTimeInput
+  FileInput
+  GroupedCollectionSelectInput
+  NumericInput
+  PasswordInput
+  RangeInput
+  StringInput
+  TextInput
+]
+
+inputs.each do |input_type|
+  superclass = "SimpleForm::Inputs::#{input_type}".constantize
+
+  new_class = Class.new(superclass) do
+    def input_html_classes
+      super << 'form-control'
+    end
+  end
+
+  Object.const_set(input_type, new_class)
+end
+
 SimpleForm.setup do |config|
   config.wrappers :bootstrap, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
     b.use :html5
     b.use :placeholder
     b.use :label
-    b.wrapper tag: 'div', class: 'controls' do |ba|
-      ba.use :input
-      ba.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
-      ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
-    end
+    b.use :input
+    b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end
 
   config.wrappers :prepend, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
@@ -20,7 +41,7 @@ SimpleForm.setup do |config|
         prepend.use :input
       end
       input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
-      input.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+      input.use :error, wrap_with: { tag: 'span', class: 'help-block' }
     end
   end
 
@@ -33,7 +54,7 @@ SimpleForm.setup do |config|
         append.use :input
       end
       input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
-      input.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+      input.use :error, wrap_with: { tag: 'span', class: 'help-block' }
     end
   end
 
