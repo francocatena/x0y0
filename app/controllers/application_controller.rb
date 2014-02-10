@@ -4,13 +4,21 @@ class ApplicationController < ActionController::Base
   private
 
     def current_user
-      @current_user ||= User.find_by(auth_token: cookies.encrypted[:auth_token]) if cookies[:auth_token]
+      @current_user ||= user_by_auth_token if cookies[:auth_token]
     end
     helper_method :current_user
 
+    def user_by_auth_token
+      User.find_by auth_token: cookies.encrypted[:auth_token]
+    end
+
     def authorize
-      Rack::MiniProfiler.authorize_request if current_user.try :is_admin?
+      plug_mini_profiler
 
       redirect_to login_url, alert: t('messages.not_authorized') unless current_user
+    end
+
+    def plug_mini_profiler
+      Rack::MiniProfiler.authorize_request if current_user.try :is_admin?
     end
 end

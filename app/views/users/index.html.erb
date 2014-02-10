@@ -18,7 +18,7 @@
           <td><%= user.lastname %></td>
           <td><%= mail_to user.email %></td>
           <td><%= link_to_show user %></td>
-          <td><%= link_to_edit edit_user_path(user) %></td>
+          <td><%= link_to_edit [:edit, user] %></td>
           <td><%= link_to_destroy user %></td>
         </tr>
       <% end %>

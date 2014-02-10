@@ -4,7 +4,7 @@ module Users::Authentication
   included do
     has_secure_password
 
-    before_create { generate_token(:auth_token) }
+    before_create { generate_token :auth_token }
   end
 
   def is_admin?
@@ -13,7 +13,7 @@ module Users::Authentication
 
   private
 
-  def generate_token(column)
+  def generate_token column
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])

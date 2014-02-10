@@ -6,4 +6,8 @@ module Users::PasswordReset
     self.password_reset_sent_at = Time.zone.now
     save!
   end
+
+  def password_expired?
+    password_reset_sent_at < 2.hours.ago
+  end
 end

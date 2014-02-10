@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     respond_with @user
 
   rescue ActiveRecord::StaleObjectError
-    redirect_to edit_user_url(@user), alert: t('.stale')
+    redirect_to [:edit, @user], alert: t('.stale')
   end
 
   # DELETE /users/1
