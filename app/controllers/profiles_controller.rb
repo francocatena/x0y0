@@ -9,6 +9,9 @@ class ProfilesController < ApplicationController
   def update
     @user.update user_params
     respond_with @user, location: root_url
+
+  rescue ActiveRecord::StaleObjectError
+    redirect_to [:edit, @user], alert: t('.stale')
   end
 
   private
