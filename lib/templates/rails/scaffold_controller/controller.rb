@@ -3,7 +3,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   respond_to :html, :json
 
   before_action :set_<%= singular_table_name %>, only: [:show, :edit, :update, :destroy]
-  before_action :set_title, only: [:index, :show, :new, :edit]
+  before_action :set_title, except: [:destroy]
 
   # GET <%= route_url %>
   def index
@@ -28,7 +28,6 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   # POST <%= route_url %>
   def create
-    @title = t '<%= plural_table_name %>.new.title'
     @<%= singular_table_name %> = <%= orm_class.build class_name, "#{singular_table_name}_params" %>
 
     @<%= orm_instance.save %>
@@ -37,8 +36,6 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   # PATCH/PUT <%= route_url %>/1
   def update
-    @title = t '<%= plural_table_name %>.edit.title'
-
     @<%= orm_instance.update "#{singular_table_name}_params" %>
     respond_with @<%= singular_table_name %>
   end
@@ -53,10 +50,6 @@ class <%= controller_class_name %>Controller < ApplicationController
 
     def set_<%= singular_table_name %>
       @<%= singular_table_name %> = <%= orm_class.find class_name, 'params[:id]' %>
-    end
-
-    def set_title
-      @title = t '.title'
     end
 
     def <%= "#{singular_table_name}_params" %>
