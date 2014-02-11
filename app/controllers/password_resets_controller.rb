@@ -12,7 +12,7 @@ class PasswordResetsController < ApplicationController
       user.prepare_password_reset
       UserMailer.password_reset(user).deliver
 
-      redirect_to root_url, notice: t('.success')
+      redirect_to root_url, notice: t('.notice')
     else
       flash.now[:alert] = t '.not_found'
       render 'new'
@@ -26,7 +26,7 @@ class PasswordResetsController < ApplicationController
     if @user.password_expired?
       redirect_to new_password_reset_path, alert: t('.expired')
     elsif @user.update(user_params)
-      redirect_to root_url, notice: t('.success')
+      redirect_to root_url, notice: t('.notice')
     else
       render 'edit'
     end

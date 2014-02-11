@@ -44,7 +44,7 @@ es:
       title: 'Cambiar contraseña'
       update: 'Actualizar contraseña'
     update:
-      success: 'Contraseña cambiada correctamente'
+      notice: 'Contraseña cambiada correctamente'
       expired: 'El enlace ha expirado, pida de nuevo las instrucciones'
     new:
       title: 'Restablecer contraseña'
@@ -52,7 +52,7 @@ es:
       send_instructions: 'Enviar instrucciones'
       back: 'Volver'
     create:
-      success: 'Se enviaron instrucciones a tu correo para restablecer la contraseña'
+      notice: 'Se enviaron instrucciones a tu correo para restablecer la contraseña'
       not_found: 'El correo que ingresaste no está registrado, verifica que no esté mal escrito'
 
   profiles:
@@ -60,7 +60,7 @@ es:
       title: 'Mis datos'
       submit: 'Actualizar mis datos'
     update:
-      success: 'Tus datos se actualizaron correctamente'
+      notice: 'Tus datos se actualizaron correctamente'
 
   users:
     edit:
