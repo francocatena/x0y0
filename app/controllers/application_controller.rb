@@ -1,9 +1,7 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  include ActionTitle
 
-  def set_title
-    @title = t action_title
-  end
+  protect_from_forgery with: :exception
 
   def current_user
     @current_user ||= user_by_auth_token if cookies[:auth_token]
@@ -24,12 +22,5 @@ class ApplicationController < ActionController::Base
 
     def plug_mini_profiler
       Rack::MiniProfiler.authorize_request if current_user.try :is_admin?
-    end
-
-    def action_title
-      alias_action = 'new'  if action_name == 'create'
-      alias_action = 'edit' if action_name == 'update'
-
-      [controller_name, alias_action || action_name, 'title'].join '.'
     end
 end
