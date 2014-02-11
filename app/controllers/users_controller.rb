@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   before_action :authorize
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_title, only: [:index, :show, :new, :edit]
+  before_action :set_title, except: [:destroy]
 
   # GET /users
   def index
@@ -30,7 +30,6 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @title = t 'users.new.title'
     @user = User.new user_params
 
     @user.save
@@ -39,8 +38,6 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    @title = t 'users.edit.title'
-
     @user.update user_params
     respond_with @user
 
@@ -58,10 +55,6 @@ class UsersController < ApplicationController
 
     def set_user
       @user = User.find params[:id]
-    end
-
-    def set_title
-      @title = t '.title'
     end
 
     def user_params

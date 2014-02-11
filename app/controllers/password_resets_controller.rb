@@ -1,12 +1,11 @@
 class PasswordResetsController < ApplicationController
   before_action :set_user, only: [:edit, :update]
+  before_action :set_title
 
   def new
-    @title = t '.title'
   end
 
   def create
-    @title = t 'password_resets.new.title'
     user = User.find_by email: params[:email]
 
     if user
@@ -21,12 +20,9 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
-    @title = t '.title'
   end
 
   def update
-    @title = t 'password_resets.edit.title'
-
     if @user.password_expired?
       redirect_to new_password_reset_path, alert: t('.expired')
     elsif @user.update(user_params)

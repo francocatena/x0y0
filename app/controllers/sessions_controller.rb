@@ -1,12 +1,11 @@
 class SessionsController < ApplicationController
+  before_action :set_title, except: [:destroy]
+
   def new
     redirect_to default_url if current_user
-
-    @title = t '.title'
   end
 
   def create
-    @title = t 'sessions.new.title'
     user = User.find_by email: params[:email]
 
     if user && user.authenticate(params[:password])

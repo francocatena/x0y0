@@ -1,15 +1,12 @@
 class ProfilesController < ApplicationController
   respond_to :html, :json
 
-  before_action :authorize, :set_user
+  before_action :authorize, :set_user, :set_title
 
   def edit
-    @title = t '.title'
   end
 
   def update
-    @title = t 'profiles.edit.title'
-
     @user.update user_params
     respond_with @user, location: root_url
   end

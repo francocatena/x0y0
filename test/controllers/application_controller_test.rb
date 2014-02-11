@@ -6,6 +6,18 @@ class ApplicationControllerTest < ActionController::TestCase
     @controller.send 'request=', @request
   end
 
+  test 'should set title' do
+    @controller = UsersController.new
+    @controller.action_name = 'create'
+
+    assert_equal I18n.t('users.new.title'), set_title
+    assert_not_nil assigns(:title)
+
+    @controller.action_name = 'edit'
+
+    assert_equal I18n.t('users.edit.title'), set_title
+  end
+
   test 'should current user be nil' do
     assert_nil current_user
   end
@@ -31,11 +43,15 @@ class ApplicationControllerTest < ActionController::TestCase
 
   private
 
+  def set_title
+    @controller.send :set_title
+  end
+
   def current_user
-    @controller.send(:current_user)
+    @controller.send :current_user
   end
 
   def authorize
-    @controller.send(:authorize)
+    @controller.send :authorize
   end
 end
