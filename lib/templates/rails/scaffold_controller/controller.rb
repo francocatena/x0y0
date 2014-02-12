@@ -40,7 +40,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     respond_with @<%= singular_table_name %>
 
   rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @<%= singular_table_name %>], alert: t('.stale')
+    redirect_to [:edit, @<%= singular_table_name %>], alert: t('.stale', scope: :flash)
   end
 
   # DELETE <%= route_url %>/1
