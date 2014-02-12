@@ -48,5 +48,3 @@ es:
       title: 'Crear usuario'
     show:
       title: 'Ver usuario'
-    update:
-      stale: 'No se pudo actualizar el usuario, revise los datos e inténtelo nuevamente'

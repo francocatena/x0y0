@@ -22,6 +22,7 @@ es:
     profiles:
       update:
         notice: 'Tus datos se actualizaron correctamente'
+        stale: 'No pudimos actualizar los datos, revise e inténtelo nuevamente'
 
     sessions:
       create:
@@ -29,3 +30,7 @@ es:
         logged_in: 'Bienvenido'
       destroy:
         logged_out: 'Hasta la próxima'
+
+    users:
+      update:
+        stale: 'No se pudo actualizar el usuario, revise los datos e inténtelo nuevamente'
