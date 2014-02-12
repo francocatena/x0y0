@@ -1,18 +1,6 @@
 es:
   app_name: 'X0Y0'
 
-  flash:
-    actions:
-      create:
-        notice: '%{resource_name} creado'
-        alert:  ''
-      update:
-        notice: '%{resource_name} actualizado'
-        alert:  ''
-      destroy:
-        notice: '%{resource_name} eliminado'
-        alert:  '%{resource_name} no pudo ser eliminado'
-
   messages:
     confirmation: '¿Está seguro?'
     not_authorized: 'Debe ingresar para ver el contenido'
@@ -33,34 +21,21 @@ es:
       password: 'Contraseña'
       remember_me: 'Recordarme'
       forgot_password: '¿Olvidaste tu contraseña?'
-    create:
-      invalid: 'Tu correo y/o contraseña no están bien =('
-      logged_in: 'Bienvenido'
-    destroy:
-      logged_out: 'Hasta la próxima'
 
   password_resets:
     edit:
       title: 'Cambiar contraseña'
       update: 'Actualizar contraseña'
-    update:
-      notice: 'Contraseña cambiada correctamente'
-      expired: 'El enlace ha expirado, pida de nuevo las instrucciones'
     new:
       title: 'Restablecer contraseña'
       email: 'Correo'
       send_instructions: 'Enviar instrucciones'
       back: 'Volver'
-    create:
-      notice: 'Se enviaron instrucciones a tu correo para restablecer la contraseña'
-      not_found: 'El correo que ingresaste no está registrado, verifica que no esté mal escrito'
 
   profiles:
     edit:
       title: 'Mis datos'
       submit: 'Actualizar mis datos'
-    update:
-      notice: 'Tus datos se actualizaron correctamente'
 
   users:
     edit:

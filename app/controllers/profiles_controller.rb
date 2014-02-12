@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
     respond_with @user, location: root_url
 
   rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @user], alert: t('.stale')
+    redirect_to profile_path, alert: t('.stale')
   end
 
   private
