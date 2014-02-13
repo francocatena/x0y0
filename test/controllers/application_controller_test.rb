@@ -41,17 +41,38 @@ class ApplicationControllerTest < ActionController::TestCase
     assert_nil @response.location
   end
 
+  test 'should update user' do
+    user = users :franco
+
+    update_resource user, { name: 'Updated' }
+
+    assert_equal 'Updated', user.reload.name
+  end
+
+  test 'should redirect on update if stale' do
+    user = users :franco
+
+    update_resource user, { name: 'Updated', lock_version: user.lock_version.pred }
+
+    assert_not_equal 'Updated', user.reload.name
+    assert_redirected_to edit_user_url(user)
+  end
+
   private
 
-  def set_title
-    @controller.send :set_title
-  end
+    def set_title
+      @controller.send :set_title
+    end
 
-  def current_user
-    @controller.send :current_user
-  end
+    def current_user
+      @controller.send :current_user
+    end
 
-  def authorize
-    @controller.send :authorize
-  end
+    def authorize
+      @controller.send :authorize
+    end
+
+    def update_resource *args
+      @controller.send :update_resource, *args
+    end
 end

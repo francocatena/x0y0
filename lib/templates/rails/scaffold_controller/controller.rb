@@ -36,11 +36,8 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   # PATCH/PUT <%= route_url %>/1
   def update
-    @<%= orm_instance.update "#{singular_table_name}_params" %>
+    update_resource @<%= singular_table_name %>, <%= "#{singular_table_name}_params" %>
     respond_with @<%= singular_table_name %>
-
-  rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @<%= singular_table_name %>], alert: t('.stale', scope: :flash)
   end
 
   # DELETE <%= route_url %>/1

@@ -38,11 +38,8 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    @user.update user_params
+    update_resource @user, user_params
     respond_with @user
-
-  rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @user], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /users/1

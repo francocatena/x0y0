@@ -7,11 +7,8 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @user.update user_params
+    update_resource @user, user_params, stale_location: profile_path
     respond_with @user, location: root_url
-
-  rescue ActiveRecord::StaleObjectError
-    redirect_to profile_path, alert: t('.stale', scope: :flash)
   end
 
   private
