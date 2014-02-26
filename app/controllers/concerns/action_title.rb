@@ -5,12 +5,13 @@ module ActionTitle
     @title = t action_title
   end
 
+  def action_aliases
+    { create: 'new', update: 'edit' }.with_indifferent_access
+  end
+
   private
 
     def action_title
-      alias_action = 'new'  if action_name == 'create'
-      alias_action = 'edit' if action_name == 'update'
-
-      [controller_name, alias_action || action_name, 'title'].join '.'
+      [controller_name, action_aliases[action_name] || action_name, 'title'].join '.'
     end
 end

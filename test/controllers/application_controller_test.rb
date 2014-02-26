@@ -18,6 +18,15 @@ class ApplicationControllerTest < ActionController::TestCase
     assert_equal I18n.t('users.edit.title'), set_title
   end
 
+  test 'should override action aliases' do
+    @controller = UsersController.new
+    @controller.action_name = 'test'
+
+    def @controller.action_aliases; super.merge(test: 'alias'); end
+
+    assert_equal I18n.t('users.alias.title'), set_title
+  end
+
   test 'should current user be nil' do
     assert_nil current_user
   end
