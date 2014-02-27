@@ -2,6 +2,7 @@
 class <%= controller_class_name %>Controller < ApplicationController
   respond_to :html, :json
 
+  before_action :authorize
   before_action :set_<%= singular_table_name %>, only: [:show, :edit, :update, :destroy]
   before_action :set_title, except: [:destroy]
 
