@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class PasswordResetsControllerTest < ActionController::TestCase
+  include ActionMailer::TestHelper
+
   setup do
     @user = users :franco
   end
@@ -11,7 +13,7 @@ class PasswordResetsControllerTest < ActionController::TestCase
   end
 
   test 'should send password reset instructions' do
-    assert_difference 'ActionMailer::Base.deliveries.size' do
+    assert_emails 1 do
       post :create, email: @user.email
     end
 
