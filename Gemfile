@@ -12,6 +12,7 @@ gem 'jbuilder'
 gem 'bcrypt'
 gem 'simple_form'
 gem 'irreverent'
+gem 'figaro'
 gem 'rack-mini-profiler'
 
 gem 'unicorn'

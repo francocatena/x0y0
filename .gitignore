@@ -8,5 +8,5 @@
 # Ignore generated docs
 /doc
 
-# Ignore local config file
+# Ignore application configuration
 /config/application.yml

@@ -7,7 +7,7 @@ class UserMailerTest < ActionMailer::TestCase
 
     assert_equal I18n.t('user_mailer.password_reset.subject'), mail.subject
     assert_equal [user.email], mail.to
-    assert_equal [APPLICATION['email']], mail.from
+    assert_equal [ENV['EMAIL_ADDRESS']], mail.from
     assert_match user.name, mail.html_part.body.decoded
     assert_match user.name, mail.text_part.body.decoded
   end
