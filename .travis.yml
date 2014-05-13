@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.1.1
+  - 2.1.2
 before_script:
   - 'cp config/application.travis.yml config/application.yml'
   - "psql -c 'create database x0y0_test;' -U postgres"
