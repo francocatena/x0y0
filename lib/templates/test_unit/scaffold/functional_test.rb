@@ -21,7 +21,7 @@ class <%= controller_class_name %>ControllerTest < ActionController::TestCase
   end
 
   test 'should create <%= singular_table_name %>' do
-    assert_difference('<%= class_name %>.count') do
+    assert_difference '<%= class_name %>.count' do
       post :create, <%= singular_table_name %>: {
         <%= attributes.map { |attribute| "#{attribute.name}: nil" }.join(', ') %>
       }
@@ -46,11 +46,11 @@ class <%= controller_class_name %>ControllerTest < ActionController::TestCase
   end
 
   test 'should destroy <%= singular_table_name %>' do
-    assert_difference('<%= class_name %>.count', -1) do
+    assert_difference '<%= class_name %>.count', -1 do
       delete :destroy, id: <%= "@#{singular_table_name}" %>
     end
 
-    assert_redirected_to <%= index_helper %>_path
+    assert_redirected_to <%= index_helper %>_url
   end
 end
 <% end -%>
