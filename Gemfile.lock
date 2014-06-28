@@ -52,7 +52,7 @@ GEM
     coffee-script-source (1.7.0)
     colorize (0.7.3)
     erubis (2.7.0)
-    execjs (2.2.0)
+    execjs (2.2.1)
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
@@ -167,7 +167,7 @@ DEPENDENCIES
   pg
   rack-mini-profiler
   rails (~> 4.1.2)
-  sass-rails (~> 4.0.3)
+  sass-rails
   sdoc
   simple_form
   spring
