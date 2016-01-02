@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
   private
 
     def plug_mini_profiler
-      Rack::MiniProfiler.authorize_request if current_user.try :is_admin?
+      Rack::MiniProfiler.authorize_request if current_user&.is_admin?
     end
 end
