@@ -24,12 +24,12 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'unicorn-rails'
+  gem 'web-console'
 end
 
 group :development, :test do
   gem 'spring'
   gem 'byebug'
-  gem 'web-console'
 end
 
 group :doc do
