@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2.5'
+gem 'rails', '~> 4.2.8'
 
 gem 'pg'
 gem 'sass-rails'
 gem 'uglifier'
-gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
@@ -28,7 +27,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'spring'
   gem 'byebug'
 end
 
