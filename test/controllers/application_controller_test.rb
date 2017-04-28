@@ -11,7 +11,6 @@ class ApplicationControllerTest < ActionController::TestCase
     @controller.action_name = 'create'
 
     assert_equal I18n.t('users.new.title'), set_title
-    assert_not_nil assigns(:title)
 
     @controller.action_name = 'edit'
 

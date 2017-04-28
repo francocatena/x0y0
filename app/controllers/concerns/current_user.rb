@@ -6,7 +6,7 @@ module CurrentUser
   end
 
   def current_user
-    @current_user ||= user_by_auth_token if cookies[:auth_token]
+    @current_user ||= user_by_auth_token if cookies.encrypted[:auth_token]
   end
 
   private

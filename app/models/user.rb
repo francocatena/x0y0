@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include Attributes::Strip
   include Attributes::Downcase
   include Users::Authentication
