@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require bootstrap
- *= require bootstrap-theme
  *= require main
  *= require icons
  *= require forms
